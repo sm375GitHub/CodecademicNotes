@@ -1,0 +1,34 @@
+As   casts  -- How to use the "user-defined" conversion.
+AS    IS  -- is only used when can not use "AS"
+---running time type and compile time type.
+
+Such as an function return "Type1" as object back. The compile time type of the return value is"Ojbect" but the running time type is "Type1".
+
+
+AS and IS is using "Runtime type" of  the object being converted
+Cast use conversion operators to convert an oject. SUch as convert long to int...
+
+An used defined conversion  is like: public static implicit operator MyType(other type t)   ----conversion operator from otherTYpe to myType
+
+
+1. The compiler is generatiign code based ont he compile-time type of the object.It will not check the real object type's functions. SO we need to convert the instance to the type then using the function.
+
+2.Cast only check the used defined conversion of a compile-time type not the running-time type.
+and "AS" only convert the runnign-time type to the request type without checking nay user defined conversion.
+
+3. As can not used for value type. Integer(boxing/unboxing conversion). So can use "IS" to check value type. 
+IS can oly used when you can not use "AS"
+
+4. Using exceptions as a flow control mechanism should strike you as a terrible practice.....(exception should not be used in a logic flow)
+
+5.if using "as" do not use "is". it's inefficient and redundant.
+
+6. Foreach using cast. It case both value types and reference types. So it can throw "InvalidCastException"
+So we can add user-defined conversion. 
+
+if not generic version of iEnumeratble, the IEnumerator.Current is "Object" type. it can only convert from "Object" to destination type.
+
+7. Is return s ture fo any type derived from the target type(child to parent); GetType() get runtime type(the real type during the runtime)
+
+
+

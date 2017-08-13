@@ -1,0 +1,15 @@
+1. Compile-time and runtime constants
+ - runtime constants is slower/correct programe than compile-time constant
+ - Compile-time is faster but far less flexible. Only used for performance is critical and never change value
+
+2. runtime constants : static readonly
+   Compile constants : const  -- can be declared inside method
+
+3. in IL, the compile constant is replaced by the value directly, while runtime constant are evaluated only during the runtime, IL can not know the value.
+
+4.Compile constant can only use for primitive type (built-in int, float, enum or string) for initializing, in order to be replaced in IL.
+
+runtime constants can be any type
+5, updating the value of a public constant should be viewed as an interface change, should recompile all code that references that constant. 
+
+6, persistent values taht mark specific versions hould be compile-time constants.they never change.

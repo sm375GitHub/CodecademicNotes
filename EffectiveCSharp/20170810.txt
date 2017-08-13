@@ -1,0 +1,14 @@
+First of all, property is a METHOD.....it can used as a method(implement differnt logic inside)
+
+1. property can be used by interface
+2. using reflection to find a named property in a type/ but it can not find a public memeber
+3. can add some simple validation( such as null check) in the public property, e.g throw exception...
+4. We should take the advantage of Property being method, not only use it as a simple public data member.
+
+5. property can be virtual
+
+6. public int this[int index]/[string]/[int, string].....
+
+NeedTODO:
+
+Basic multithread code...

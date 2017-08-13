@@ -1,0 +1,16 @@
+1. git branch, check current branch name
+2. git checkout branch == switch branch
+3. git merge branch_nameFrom
+ -- if only the branchFrom changed, orignial only uupdate
+ -- if original changed, then need to merge conflict
+  --  <<<<<<<Head 
+      ============
+      current branch version
+  --->>>>>> branchName
+     from branchName
+
+merge: in branchORiginal, merge FromBranch.... merge conflic .....add file into statge....commit
+
+4. git branch -D name   delete branch
+
+5. new branch share same commit history with the parent
