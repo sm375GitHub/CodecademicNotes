@@ -1,0 +1,8 @@
+1. Unittest does not need to cover 100%. It only needs to cover most important things.
+2.documentation to replace emails 
+
+3. when creating the base class which has a field with an interface IA1, if the children classes contains different concretaed class of IA1. Then we can define the base class as a generic class <T> where T: IA1
+
+So I do not create kind of abstract function CreateLocalIA1 in base, to spedific the real type in child classes
+
+4. Create generic type instance, can add condition as    where T : IComparable, new()

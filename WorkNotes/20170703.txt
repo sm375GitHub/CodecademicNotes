@@ -1,0 +1,15 @@
+1. MD.Hub.APIStubs is used to create swagger files and copy poliy files for updater project
+
+-- when add policy need to notice that the strucuture of the path is fixed and sensitive. 
+  1> all controller should have a base xml. The path is policies/apis/controllerName.xml
+  2> all operations which requires xml file should have a policy under policies/apis/controller/operations/operation.xml
+  3> policy xml file and opeations folder's name should map to controller name
+
+2. after review by ramon: 
+  1> First ALL need to unittest Ioc first by resolving one by one. The type added in each project's Ioc is used to intiallize the project. none of them should be empty.
+  2> pass ioc dependency to constructure
+  3> lowercase for private functions
+  4> service should as simple as possible. the complicated thing should be passed inside as the argument
+  5> check stub and real controller's route mapping
+
+3. 

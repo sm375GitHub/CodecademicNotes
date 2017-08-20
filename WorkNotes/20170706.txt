@@ -1,0 +1,147 @@
+1. resouce created by one app-id defaultly can not be access by another appid
+2. but we can add the access tenantapi database to map these 2 appids (grand to grand from  appid1 .... appid2)
+3. in mongodb, we also add roles for each tenant to access any resouce by resouce_read/write
+4. when debug the hub service. we can check
+  1> if it reach on spark service by checking loging any exception
+  2> if it reach the tenant api
+  3> we can using browser to check the tenant api url directly. and add "Show error" in the config file to show any issue IIS found
+
+5.using azure storage exploer to check dev spark log.
+
+6. the latest MOQ is confilict with castle winsor, because MOQ using Castle.core 4.1, but Castle.Winsdor using 3.3.
+
+So have to use old MOQ version to adapt the castle.windsor. 
+
+7. When using MOQ, if the object has constructor augments, need to add tyhem with strict mockbehavior(show exceptiong)
+
+
+8 . return task<T> --> Task<T>.Run( s=> return....)
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Hl7.Fhir.Model;
+using MD.Hub.Common.ClientAdapters;
+using MD.Hub.Common.Log;
+using MD.Hub.Common.Mappers;
+using MD.Hub.Common.Mappers.UnitTest;
+using MD.Hub.TyroClaim.PayloadApi.Config;
+using MD.Hub.TyroClaim.PayloadApi.Services.Interfaces;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using TyroClaimApiTest.MockCreator;
+using static Hl7.Fhir.Model.Claim;
+
+
+namespace TyroClaimApiTest.service
+{
+	[TestClass]
+	public class ClaimServiceTest
+	{
+		const string testUrl = "test.com";
+
+
+		private Mock<IClientFactory>getClientFactory()
+		{
+			Mock<IClientFactory> mock = new Mock<IClientFactory>();
+			var adaptor = CreateMockAdaptor(true).Object;
+
+			mock.Setup(f => f.CreateFhirRepoClient(It.IsAny<string>(), It.IsAny<IDictionary<string, string>>())).Returns(adaptor) ;
+			return mock;
+		}
+		private Mock<SparkFhirAdaptor> CreateMockAdaptor(bool isDependenciesContained)
+		{
+			MockFhirClaimCreator claimCreator = new MockFhirClaimCreator();
+			var claim = claimCreator.CreateFhirClaim(isDependenciesContained); 
+			var headers = new Dictionary<string, string>();
+
+			var mock = new Mock<SparkFhirAdaptor>(MockBehavior.Strict, new object[] { testUrl, headers });
+			List<Claim> resutList = new List<Claim>() { claim };
+			IEnumerable<Claim> mockResult = resutList;
+			mock.Setup(f => f.GetAsync<Claim>(It.IsAny<IEnumerable<Tuple<string, string>>>())).Returns(Task<Claim>.Run(() => { return mockResult;}));
+		 
+			return  mock;
+		}
+
+		private Mock<ILog> CreateMockLog()
+		{
+			var mock = new Mock<ILog>();
+			mock.Setup(l => l.LogInfo(It.IsAny<string>()));
+			mock.Setup(l => l.LogError(It.IsAny<Exception>()));
+			return mock;
+		}
+
+		private Mock<IAppConfig> CreateMockConfig()
+		{
+			var mock = new Mock<IAppConfig>();
+			mock.SetupGet(m => m.PaymentAppId).Returns(string.Empty);
+			mock.SetupGet(m => m.PaymentAppKey).Returns(string.Empty);
+			mock.SetupGet(m => m.MedicareXmlVersion).Returns(string.Empty);
+			mock.SetupGet(m => m.MDHubFhirURi).Returns(string.Empty);
+			
+			return mock;
+		}
+		
+
+		[TestMethod]
+		public void CreateClaimXMLTest()
+		{
+			//arragne
+			MockBBeClaimCreator creator = new MockBBeClaimCreator();
+
+			BBeClaim claim = creator.ReturnMockClaim();
+			BulkBilleClaimingRequest request = new BulkBilleClaimingRequest();
+			request.claim = claim;
+
+			HttpRequestHeaders header = new HttpRequestMessage().Headers;
+			header.Add("Ocp-Apim-Subscription-Key", string.Empty);
+
+			var logger = CreateMockLog().Object;
+			var config = CreateMockConfig().Object;
+			var factory = getClientFactory().Object;
+
+			var t = CreateMockAdaptor(true).Object;
+
+
+			var claimMapper = new FhirToMedicareMapper();
+			//act
+
+
+			MedicareClaimPayLoadService service = new MedicareClaimPayLoadService(config, factory, logger, claimMapper);
+
+
+
+			var result = service.CreateClaimXML(string.Empty, header).Result;
+
+	 
+  
+			//assert
+			Assert.IsNotNull(result); 
+
+		}
+
+
+	}
+
+ 
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+1. if we want get something from  a function , then we should use a property.  the property can be abstract as well, it is a method actually from the view of the compile.
+
+2. indent
+3. readonly can make field be only assigmented in Constructor or declaration. It forces to add value to a field. and Prevents the field is overwriten
+
+4. all the service passed from constructor can be set as Readonly
+
+5. all flag string should be added into the resources

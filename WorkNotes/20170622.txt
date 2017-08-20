@@ -1,0 +1,12 @@
+1. how to route from apim to webapi?
+
+2. fhir docu 2 mapping to the fhir libary objects
+3. coding type in fhir just like a int or enum
+4. not extend fhir object, because it is not standard anymore
+5. add an guid created by server in header when call service check guid in server and decide if we need to return this to client
+
+6. Azure directory used to create bearing code. via JWT. what's JWT  and how it authenticate ??
+   Azure helix/url...  
+
+ 
+7, requestbin will expried. so need to crate new bin with details from Sneha's email   

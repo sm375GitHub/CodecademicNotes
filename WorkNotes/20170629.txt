@@ -1,0 +1,15 @@
+1.Fluentvalidation setvalidator
+ - passing other validator to constructor
+ - must
+
+2. fhir,  add id in identifier. and get the value by add system link (as a key()
+
+3, in fhir resouce, if a sub resouce is a reference, then it may be retieved from "Containner" section. otherwise, retireve the object from fhir repo with the reference id 
+
+4 return Task.Run(() => { return (T)this.CreateMockPractitioner(); }); vs (T)CreateMock...()
+
+here ned to return task rather than a T
+
+5, in apim, when request arrives, the url is saved into the callback url in Cache inAMPI. so when hub api finishs the service, it using apiMclient class to call backto APIM. and APIM will send response to the caller with eht callback Url saved in the cache.
+
+6. IOC resolving parameters of the class aswell. otherwise need to add the constructor arugments manually.

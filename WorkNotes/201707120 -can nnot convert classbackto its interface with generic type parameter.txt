@@ -1,0 +1,3 @@
+1. because can not convert class1<type1> back to Iclass1<generic1>. so i added an interface for Iclass1<generic1> as IrootInterface.  Firstly, cconvert all Class1<typ1> ..class2<type2> back to the root interface in the factory function....
+
+ then, convert IrootInterface to the IClas<gerenic1> when the geericTyp1 has been known in the code

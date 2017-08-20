@@ -1,0 +1,7 @@
+1. In javascript, literal always is the public thing; if we need to explore parts of the object (class?), we have to use function to define the object, and return an object the obejct will contain everything we want to explore to outside.   var t = function(para1){ ..... return { a: function1; b : function2}};
+
+if we want to create something like "getter" in c#. we need to using an closure to wrap the internal variable that used as an getter datasource.
+
+functaion(){return var1;};
+
+2. be careful the difference between var a = function1() and var a = function1

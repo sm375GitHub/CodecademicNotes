@@ -1,7 +1,0 @@
-1. working staging repository
-2. git initial --> git status : show untracked files
-3. git add fileName : add  into the staging area.
-4. Can use git rm --cached file to remove the file from the staging area
-5. after adding new content in the staging file, run "Git diff fileName" it should new things with"+"
-6."Git commit -m"comment"". to save the file changed from the staging arear into repository
-7. "git log" to check the last commit 

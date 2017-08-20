@@ -1,0 +1,17 @@
+1. javascript service does not need IIFE. just need pass the reference inside
+2. but for data/domain, we may need to use IIFE
+
+1.因为使用了 interface，所以不能直接把 TObject 加到 instance的field上。 只能用一个addFunc 转变之
+
+
+2. a couplel of similare class as domain objects. they can share functions that in the function they are used in the similar way. 
+
+interface 有类似的 properties， So i wantto create another interface for the properties.
+
+So in the function, it want to handler something interface that represent all similare things between domain objects. . I can set the field of the objects as interface or gneric type
+
+But because the objects need to be serialized, so i cannot using any interface or genreic type in the domain classes. In order to handle it, i have to add an |ADD" or "Convert" function in the interface. it is used to convert some thing common into the concreate class's field and modifie dthe class's fields that can not be defined as interface or
+
+
+------------------
+随后发现，这个办法是脱裤子放屁。因为每一个 domain object已经有了本来属于自己的field type， 那么直接用泛型代表这些field的type就可以了（在实际实现的类中feild根本看不到泛型。。。。。），相当于用了这些field type 用了interface。。。。只要强制这些泛型是继承于公共的interface就好了。那么就是 用 泛型代替interface，但是用interface限制泛型的功能。 相当于，每个field的type是有共性的，这些共性被提炼成了一个interface。但是包括field的domain object的提炼 (interface)中，只要用泛型来代表这些有共通性的field就好了，根本不用再实际的class中巴field的type写成interface.

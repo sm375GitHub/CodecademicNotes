@@ -1,0 +1,2 @@
+1. hub using patient name/dob to map the patient from 3rd part and then check the tanantid and appid of the patient if the patient and the doctor from the same practice. if not then create/update in hub repo with the ids and info
+2.

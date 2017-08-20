@@ -1,0 +1,16 @@
+ 1. in fhir, when check if something ref in other field is contained in Contained section, using ResourceReference.IsContainedReferece and our extension method GetContainerResouce.. to get the contained ref.
+
+ResourceReference is very useful
+
+2, every project has a ioc installer class, it can create its own intances and it need to check if the global instance has been resolved 
+container.Kernel.HasComponent(typeof(IAppConfig)))
+
+if not it should create it.  container.Register(
+					Component.For<IAppConfig>().ImplementedBy<AppConfig>());
+
+3. check the interExcption can find the internal position that throws the exception
+
+serializer = new XmlSerializer(typeof(BulkBilleClaimingRequest));
+
+
+can not handle any interface.....shit....

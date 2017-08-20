@@ -1,0 +1,7 @@
+1. App.config
+App.Debug.config....App.Release.config
+
+2. When try to save/load/update fhir resource, we needt to create a APIM portal for it with /fhir/ in the url.
+APIM will be responsible to pass the request to the real spart API. The SparkFhirAdaptor is only thin to pass the request to APIM. 
+
+the APIM operation should have Create/Update/Get/Delete/Get objects

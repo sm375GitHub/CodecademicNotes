@@ -1,0 +1,31 @@
+1. create appointment via helix api to check long email address bug
+ need to crate a patient in fhir repo first. need to check the name of the tenant, we used VVG18 based it's subscriptionKey in header: ocp-apim-subscription-Key
+app-id:77699511-0600-4ecc-8097-bf4d93998349
+app-key:xYZDWInI6jtRSnGkMvAdQ8YoR63A/JvaWr4Kf4tlz6g=
+ocp-apim-subscription-Key:5a5237d7d54a4b56b38960cc7b3516f9
+
+2. find the validation in hulix adapter is set in resouce service's "Create" methods
+//SecurityManager.ThrowIfNotAuthorised(SecurityDomainOperations.Appointment_Create);
+
+3.for each model there is a validation attribute
+ [Validator(typeof(AppointmentModelValidator))]
+
+4. AutoMapper:
+PatientMappingProfile :AutoMapper.Profile
+            CreateMap<FhirModel.Patient, HelixCore.PatientModel>()
+                .ConvertUsing<FhirPatientToHelixPatientModelTypeConverter>();
+
+profiles are in IOC container installer. to make sure it can be used automatically
+            Mapper.Initialize(cfg =>
+            {
+                cfg.ConstructServicesUsing(container.Resolve);
+                var profiles = container.ResolveAll<Profile>();
+                profiles.ForEach(cfg.AddProfile);
+                cfg.CreateMissingTypeMaps = true;
+            });
+
+5. can not set request resouce object id value when creating patient. other wise it craet patient with helix id.....
+    {
+      "system": "http://medicaldirector.com/hub/identifier/external/resource/object-id",
+      "value": ""
+    }

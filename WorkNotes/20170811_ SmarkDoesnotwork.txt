@@ -1,0 +1,7 @@
+1. rebase, add all new commits(source) of the feature to master(target). so when merging conflicts, we can see lots of thing made in the past commit.....
+
+2, in KDiff3, we can check the number in the left bar of output window to edit the version we want to use.
+
+4. the commit version can be found when do rebase --continue
+
+5. 

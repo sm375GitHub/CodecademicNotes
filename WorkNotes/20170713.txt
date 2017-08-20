@@ -1,0 +1,4 @@
+1. in APIM, we can 
+2. in httpHeader, the value of the dictionaryItem is an Ienumerable . so need to retrieve [0].
+3. APIM policy will can not work immeidiately after modifying
+

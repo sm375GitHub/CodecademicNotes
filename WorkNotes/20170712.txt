@@ -1,0 +1,3 @@
+1. need to release tools, dev and spart together. otherwise one part failed can cause the whole testing failing
+2. when deploy to diffrent environment, need to assign the claim permission between subscriptions.
+   the resouce created by one tenant can not be access by another defaultly. in Easyclaim. we created claim by a subscription passed by request message(such as postman), and consume it with the Payment tenant created by simon as a sepcial claim consumor. In this case we need to set permission between the postman tannant with the payment tenant.

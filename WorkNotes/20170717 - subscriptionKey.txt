@@ -1,0 +1,17 @@
+1. need to change users subscriptionkey in different slots: apim->users->Ranorex.Billing Ranorex.billing  Priamry Key
+this Ranoriex subscript the product IV_Corporate_partner ; the product has API: appointment, claim, basic.....
+ 
+
+2. using postman to check each endpoint...
+
+3. if postman or page display such as internal error 500,  add in "Web.config". IIS will return error details
+<system.web>
+ <customErrors mode="Off"/>
+<.../>
+
+4. Unittest does not need to cover 100%. It only needs to cover most important things.
+5.documentation to replace emails 
+
+6. when creating the base class which has a field with an interface IA1, if the children classes contains different concretaed class of IA1. Then we can define the base class as a generic class <T> where T: IA1
+
+So I do not create kind of abstract function CreateLocalIA1 in base, to spedific the real type in child classes

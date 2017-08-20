@@ -1,0 +1,7 @@
+1. Castle Windsor lifetime management
+LifestyleTransient
+LifestyleSingleton
+
+2. When passing url and path. need to double check all url used in the code...
+
+3. never add stupid comment in the code. in case it remains in the product code.

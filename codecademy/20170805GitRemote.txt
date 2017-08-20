@@ -1,0 +1,10 @@
+1.A remote is a shared Git repository that allows multiple collaborators to work on the same Git project from different locations
+
+2.git clone remote_location clone_name  remote_location can be filepath as well
+
+3, git fetch : get diff from remote in origin/master branch not in local master branch 
+
+4, after cloning remote code, gite give the remove address name "Origin" to make it more conveninetly.
+git remote -v
+
+5.branch is in local, and remote branch is origin
