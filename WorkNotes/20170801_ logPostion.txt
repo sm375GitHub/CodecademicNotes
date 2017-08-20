@@ -1,0 +1,2 @@
+1. logger: in eventhandler functions, start with a log to indicate teh event is fired
+           when calling a service, logger the result or precontext of the operation

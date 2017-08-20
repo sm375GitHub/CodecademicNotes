@@ -1,0 +1,10 @@
+1. request send to APIM, APIM change the URL (resourc) in the request and not (maybe ) change the argument. 
+So after APIM redirect the request, the real controller will get the information
+
+2. Spark is also a apim API in Hub, so we need to pass the BaseURL of the API, and with securityHeader(subscriptionKey, appid appkey)
+
+3. add log in service logger.LogInfo("---- try Updating slots");
+
+4. add config key in a resouce class. to make the key static in all project
+
+ 

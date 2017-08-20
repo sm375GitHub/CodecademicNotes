@@ -1,0 +1,13 @@
+1. WEBJOB trigger.
+-- add trigger attribute in the static function : QueueTrigger; TimeTrigger, onDemand(only when click run button)
+-- in azure, webjob type can be continue and trigger(time and onDemand)
+-- in code, can add webjob setting(settings.job), 
+{
+	"schedule": "0 0 14 * * *"
+}
+it can run the webjob periodly. and when the webjob is running, let it call the function we want to run
+
+2. Azure queue is created via storage. Queue has a  name.
+   in Webjob code, add QueueTrigger attribute in function attribute.When webjob run, it run the related exe and when the queue is changed, the function is triggered.
+2. Polling
+polling' is the continuous checking of other programs or devices by one progam or device to see what state they are in, usually to see whether they are still connected or want to communicate.

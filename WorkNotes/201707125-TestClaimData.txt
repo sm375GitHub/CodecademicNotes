@@ -1,0 +1,3 @@
+1. simulator and integration have diffrenet patient medicareNum and provider Num
+2. In Fhir, Element is the base class of Fhir types , such as fhir string. fhirInteger..... 
+   so in fhir resouce, the value usually is an Element derived class , e.g. Extension.value = new FhirString("FFFF");

@@ -1,0 +1,10 @@
+1. remove/add proxy for vs
+in C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE
+- openning devenv.exe.config
+- in <defaultProxy> add  <!--proxy bypassonlocal="True" proxyaddress="http://10.130.201.252:8080"/-->  
+
+2.The difference is that the intended purpose of the class containing a factory method is not to create objects, while an abstract factory should only be used to create objects.
+
+One should take care when using factory methods since it's easy to break the LSP (Liskovs Substitution principle) when creating objects.
+
+3. when using a class's extension method. the class's version should be as same as the class referencedin extension class

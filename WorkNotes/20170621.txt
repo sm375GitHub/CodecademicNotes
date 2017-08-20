@@ -1,0 +1,9 @@
+1.Azure Setup  with all register settings
+https://medicaldirector.atlassian.net/wiki/display/MDHUB/Azure+Setup
+
+2. when build is broken, first need to check the details of that step definition
+
+3. when request arrevied in apim API, the policy will send request to a queue. the queue's name can be added in the apim's Property
+
+  In code using INameResolver to get queue name from web config, and add the resolver into the JobHostConfiguration
+

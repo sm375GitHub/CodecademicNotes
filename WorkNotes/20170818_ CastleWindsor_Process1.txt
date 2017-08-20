@@ -1,0 +1,42 @@
+1. castle windsor, AddFacility<TypedFactoryFacility>, used to add Castle.MicroKernel.IFacility
+2. start the castle windsor in the verybeginning of the project. 
+
+   var container = IoCContainer.Container;
+   container.Install(FromAssembly.This());
+3. IoCContainer above code is a static windsor container:
+
+	public class IoCContainer
+	{
+		static IoCContainer()
+		{
+			container = new WindsorContainer();
+			//container.Install(FromAssembly.This());
+		}
+		private static IWindsorContainer container { get; set; }
+
+		public static IWindsorContainer Container
+		{
+			get
+			{
+				return container;
+			}
+		}
+	}
+
+4. when a interface is registed as a factory, It will resolve object with name if the method in the interface is "get+name of IOC".
+		Component.For<ITest>().ImplementedBy<Test3Class>().Named("Test3").LifeStyle.Transient,
+		Component.For<IMyFactory>().AsFactory());	
+		 - IMyFactory.GetTest3();==> resolve Test3Class
+
+Then when we resolve the Test3Class, we do not need to write ugly resolve... in the code, we just need to pass the factory into the caller's function, and when it need test3class, jsut use this factory to create the instance
+
+5.DynamicParameters
+specific arguments under specific resolving...
+			container.Register(Component.For<IMessageProcessor>()
+				.ImplementedBy<TyroClaimResponseProcessor>()
+				.Named(FhirExtensions.EasyClaimFullyPaidResponseEvent)
+				.DynamicParameters((k, d)=>
+				{
+					var modelfactory = k.Resolve<ModelFactory>(FhirExtensions.EasyClaimBulkBillRequestEvent);
+					d["medicareModelFactory"] = modelfactory;
+				}).LifestyleTransient());

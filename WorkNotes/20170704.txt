@@ -1,0 +1,19 @@
+1. after deploy webjob processors, it complains cannot find webconfig. It is because the exe is deploied into the wrong webjob.
+
+TelemetryConfiguration.Active.InstrumentationKey = CloudConfigurationManager.GetSetting("appInsightsInstrumentationKey");
+
+So need to check the exe file under each webjob before deploying it.
+
+2. how validation can return error to postman????
+
+3. FluentValidation need to add WithMessage and need Unit Test
+
+4. when using ajax, need to passing the logic in the success section . because ajax is asyn so it can not return anyting back in time. 
+
+5. in Tenantapi overview: the url is the "tenantApiUri" used in the environment
+
+6, debug controller, run apiHost , and then run the controller with the url. when run controller, add controller's webconfig into apiHost's webconfig
+
+7. debug processor. using postman feed the queue, and stop azure webjob. then run processor locally to using the message in azure queue
+
+need to copy queueName listened into App.config, and need to copy other important data into app.config file.

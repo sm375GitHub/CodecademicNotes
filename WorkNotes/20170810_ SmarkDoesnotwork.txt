@@ -1,0 +1,11 @@
+center -- location
+orgnization -- healthCare
+practice -- tenant
+1. when found can not read/write via spark, need to check Microsoft Azure Sotrage Explorer. We saved spark log inside of the storage tables.
+
+2.get tocken from the log table and run jwt get details of the request.. in today's case, the url of the request is wrong...
+
+jwt displays information of request's permission/rights
+
+
+mcpdlzpbrfkrhcff

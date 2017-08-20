@@ -1,0 +1,13 @@
+1. out -- covariant   in -- contravariant
+  out means this type can only used in return value can not be a input parameter  so return default(T) is good, but 
+  funcA(T t1) is wrong.
+
+  in means the type can only be used as an input parameters can not be returned.
+
+2> so if not care about the inner logic, a type that is marked as "IN" means the instance of the type can be contravariant    Foo<dog> d1 = new Foo<Beast>();  --- can assign interface to derived class....
+And because we can not return T from Foo, so we need to implement the case inside the class to make sure the instance of interface Beast is MUST be the instance of Dog.
+ 
+
+in the same way, when a T is marked with "OUT", then Foo<Beast> = Foo<dog>. Although Beast b1  = new dog is reasonable, it can not be used in class or the instance that uses beast and dog directly... such as List <object> l1 = new List<String>(), is wrong.... 
+
+https://test1-api.hub.medicaldirector.com/Tyro/EasyClaim/$get-payload?payloadId=acf8c4e3-be51-4e68-a74d-b3c73a79c1c9

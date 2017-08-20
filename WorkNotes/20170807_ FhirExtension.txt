@@ -1,0 +1,11 @@
+1. extension in fhir. any class that inherites from IExtensible has a Extension list. Extension is a child element in the resouce . The structure of the extension includes: url and Value[x]
+
+Value[x] is one of 23 vlaue types from integer to url ,bolean and code....
+
+2. in Fhir, Element can be 3 types:
+   1> Primitive data types  simple (bool, integer...)
+   2> Primitive data types  can have children elements (complex)
+   3> BackbonElement  teh base definition for elements defined as part of a resouce definition. can not be dataType for other elements
+
+3. in the fhir extension, the valueSet is for code value...
+
