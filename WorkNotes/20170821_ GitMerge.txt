@@ -1,0 +1,2 @@
+1. because there are too many things to rebase, so i need to clone develop into local branch, and merge the source code with local branch
+2. merge can also copy all the history to the branch

@@ -1,0 +1,12 @@
+1. something not use for all the project should only be in the specific project
+2. if 2 service basedon the differnt modle, maybe can put most logic in the modle..??
+3. readonly for preoperty only be read.
+4. In service, the controller has been registed into the IOC. by 
+container.Register(Classes.FromThisAssembly().BasedOn<ControllerBase>().LifestylePerWebRequest())
+
+5. spell, if brace
+6. name of test class should be "Tests"
+7. never use Resolve in code. Using factory if we need to create an object during the run time
+8
+
+ 

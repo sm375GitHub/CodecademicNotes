@@ -1,0 +1,20 @@
+1. castle windsor: we can use 2 ways to initial/resovle a instance with paramters that also be resloved automatically in dynanicParameters and Dependson
+
+2. inline dependencies: 
+Dependson with Dependency.OnValue("name of property/constructor", value)
+
+3. dynanicParameters , need to implement a anonymous method, it can only used to set parameters.
+by using (k, d) =>{ ...}
+d is the dictionary for paramters. so we can using k(containter) to resolve something first then set the value to d item.
+.DynamicParameters((k, d)=>
+				{
+					var modelfactory = k.Resolve<ModelFactory>(FhirExtensions.EasyClaimBulkBillResponseEvent);
+					d["medicareModelFactory"] = modelfactory;
+				}).LifestyleTransient());
+
+4. when using "params ojb[]", then we can add nay mumber of parameters in the function
+
+
+
+
+ 
