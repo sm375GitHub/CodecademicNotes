@@ -1,0 +1,11 @@
+1. how to reboot Tyro Device
+simon.stassen [4:04 PM] 
+to delete the queue, you need to
+   telnet into the terminal, using its IP address
+   login to root,
+   and do
+
+  rm -Rf /var/spool/*
+
+  If the root user asks for a password, you need contact Paul Vlagsma from Tyro and tell him the MAC address of your terminal
+   i.e. the 424b0008190xxxxx number

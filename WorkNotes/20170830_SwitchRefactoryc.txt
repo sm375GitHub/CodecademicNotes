@@ -1,0 +1,12 @@
+1. using polymorphism to handle switch/case. Common interface + factory
+
+-- Martin Fowler's "Refactoring"
+
+-- Strategy Pattern 
+-- Clean code
+
+2. To pass the type into the generic type of the function we can use reflection rather than switch/case...
+
+3. Task<string> ... Task.Run(()=>obj);
+
+4.

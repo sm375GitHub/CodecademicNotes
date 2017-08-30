@@ -1,0 +1,13 @@
+1.    git fetch --all --prune
+
+2.    git rebase orign/master
+
+3.    git mergetool
+
+4.    git rebase --continue
+
+do 3 & 4 till all conflicts are resolved (merge merges one at a time)
+
+5.    git push –f
+
+2. code review: when add parameters into function, we should create the prarmeter var first then using the var in side the function signiture. it is easy to read.

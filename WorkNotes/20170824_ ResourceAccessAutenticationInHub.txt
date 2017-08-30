@@ -1,0 +1,14 @@
+1. how check if one teant have authentication to manipulate resouce for another tenant
+--1> In APIM: each tenant has a subscriptionKey in each slot. it can be found in apim 's Users-PREVIEW (show/hide key)
+--2> In MogoDB we can find the link between the subscriptionKey of the tenant in the slot and the tenant Id:
+    in TenantSubscriptionConfiguration table. Id is susscriptionkey, TenantId is the tenant's id
+--3> In MongoDB, the APPId of the tenant is in PrivateAppConfiguration
+--4> In MogoDB, the autenticiation between 2 tenants can be found in "TenantAppAccess"-- tenantActor: tenant Of the resouce
+
+2. in APIM, We add appid and subscriptoinid. actually, it means appID(tenantA) doing someting on subscriptionid(TenantB) resouce
+
+3. JTS will validate these info in APIM policies
+
+4. Appid and appKey are same in the all environments. Thay created in azure direcotrory. Can be find in 
+
+5.each subscriptionId maps to one product in  one Environment.
