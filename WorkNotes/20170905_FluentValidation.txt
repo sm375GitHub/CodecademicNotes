@@ -1,0 +1,28 @@
+1. FluentValidator. in constructor, we set rules for validation and then, when AbstractValidator(i.e. the validator) runs validate(instance), it return validatonResult. all error found in the validation will listed in side. 
+
+However, if there is exception happend, the printing error list can not be printed out because the exception will stop the process
+
+2. in order to avoid exception, we can add "when" after ruleOption. The condition of when can avoid from exception conditions.
+
+3. we can also create custom function in Must. in the custom function, we can check the item passed in and also using PropertyValidationContext...
+
+4. propertyValidationContext can check parent context( the parent validation) by 
+var parent = context.ParentContext.InstanceToValidate as Parent;
+
+5. can not pass null to validator.Validate(obj)
+6. if using RuleFor....SetValidator, if passing null to the setValidator, it will not work. and no exception thrown either. 
+
+So need to check if the property passed is null first in the superValidator. then pass it to subValidator
+
+
+7. RuleForEach Issue:
+ FluentValidator cannot use itself to pass to sub Validation when its own is a list 
+
+ public class Test3StringValidator : AbstractValidator<List<TestObj>>
+    {
+        public Test3StringValidator(IValidator<List<TestObj>> t4)
+        {
+            RuleForEach(t => t).SetValidator(t4);  //t is itself and is a list
+            RuleFor(t => t).NotEmpty().WithMessage("Can not be mepty2222");
+        }
+    }

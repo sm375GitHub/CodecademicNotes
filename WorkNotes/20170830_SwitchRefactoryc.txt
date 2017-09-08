@@ -9,4 +9,8 @@
 
 3. Task<string> ... Task.Run(()=>obj);
 
-4.
+4. CyclomaticComplexity: M=E-N+2P
+  E-- edges   N-- nodes of the graph  p the number of connected components
+
+5. create less class to matain. Not use too much protected virtual functions in the default function
+6. any factory class should in the factory folder

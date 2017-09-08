@@ -1,0 +1,4 @@
+1. table, table header. table row, table col
+
+table th tr td border:
+colSpan, rowSpan

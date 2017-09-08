@@ -1,0 +1,7 @@
+1. Unit test
+
+only mock the libarry outside or very complixe thing
+
+2. if using mock do  not use my own mock framework( a fake class)???
+
+3. need create a good happy case test

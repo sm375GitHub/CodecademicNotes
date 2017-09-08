@@ -1,0 +1,62 @@
+1. Moq: 
+   Mock<interface1> m = new Mock<interface1>
+   m.Setup(t => t.method1(IT.ISAny<object>)).return(...);
+
+2. my moq of fluentValidation
+--all sub validation should be interface be injected into superValidation constructor
+
+as public Test1Validator(IValidator<string> t2)
+---need to resolve the arguments of the constructor with DependsOn:
+
+            container.Register(Component.For<IMessageProcessor>()
+                .ImplementedBy<TyroClaimResponseProcessor>()
+                .Named(FhirExtensions.EasyClaimFullyPaidResponseEvent)
+                .DependsOn(new { medicareModelFactory = container.Resolve<ModelFactory>(TyroRequestType.EasyClaimFullyPaid.ToString())}));
+
+
+
+
+-------------------
+program()
+{
+          var mockV = new HappyMockValidator();
+
+            Test1Validator t2 = new ConsoleApplication15.Test1Validator(mockV);
+
+            var result2 = t2.Validate(new TestObj());
+
+            Console.ReadKey();
+		}
+	}
+
+    public class TestObj
+    {
+        public string A;
+        public bool MockTest1()
+        {
+            return true;
+        }
+    }
+
+    public class HappyMockValidator : AbstractValidator<object>, IValidator
+    {
+         
+    }
+
+
+    public class Test1Validator : AbstractValidator<TestObj>, IValidator
+    {
+        public Test1Validator(IValidator<TestObj> t2)
+        {
+            RuleFor(t => t.A).NotEmpty().WithMessage("Can not be mepty");
+            RuleFor(t=>t).SetValidator(t2);
+        }
+    }
+
+    public class Test2StringValidator : AbstractValidator<TestObj>, IValidator
+    {
+        public Test2StringValidator()
+        {
+            RuleFor(t => t.A).NotEmpty().WithMessage("Can not be mepty2222");
+        }
+    }
