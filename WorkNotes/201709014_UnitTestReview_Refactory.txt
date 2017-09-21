@@ -1,0 +1,2 @@
+1. interfaces/impl
+2. only pass interface into constructor

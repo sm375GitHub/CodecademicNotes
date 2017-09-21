@@ -1,0 +1,18 @@
+moq 
+1>mockObj.Verify(c=>c.func..)  ==> make sure the function is run at least once
+2>mockObj.setupProperty(c =>c.property1, "ssss").setupProperty(....)
+3>Behavior Verification: pass mock collaborator objects that are instrumented in a way that allows you to verify the mthods have been called in the way expected.
+
+4> Mock readonly property.  mock.SetupGet(m => m.Claim).Returns(createClaim());
+
+5> The code need to be decouple with interface, and be encapsulated by classes ( the it can be mocked...)
+
+6> static methods is issure of unit test as it can not be mocked. So we may should wrap it into a non-static  class
+
+7> a generic type moq
+        Mock<IFhirAdaptor> createFhirAdaptorMock<T>(T stubResouce) where T : Resource
+        {
+            var mock = new Mock<IFhirAdaptor>();
+            mock.Setup(m => m.GetAsync<T>(It.IsAny<List<Tuple<string, string>>>())).ReturnsAsync(new List<T> 		{ stubResouce });
+            return mock;
+        }

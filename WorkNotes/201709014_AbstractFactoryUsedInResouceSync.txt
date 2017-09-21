@@ -1,0 +1,4 @@
+1. in the factory, pass type in and using typeof(GeneralClass<>).MakeGenericType(Type1) ===> it create type of GeneralClass<Type1>. Then use it to resolve in IOC to create concrete instance of classes defined. 
+
+All concrete instances are inherited from IResourceSync interface.... so the factory is an abstract factory, it is passed in to class as constuctor parameter and return an interface
+ 
