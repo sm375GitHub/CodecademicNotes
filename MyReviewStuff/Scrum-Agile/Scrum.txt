@@ -1,0 +1,8 @@
+scrum: 
+   -sprint planning/
+   -daily scrum(stand meeting - what did i complet. what i should do, any block/)
+   -sprint review and retrospective ( review completed and not completed work; demo, what's next)
+    2 hr in 2 weeks
+       ---what well and what should improve
+   	--backlog
+	--cancel sprint

@@ -1,0 +1,19 @@
+
+CI benefit
+因為知道佈署程式的方法，因此修改完程式後，進入測試階段的速度會非常快
+因為有範例圖，所以在寫程式之前，已經知道結果為何了，因此會非常快就知道測試結果是否正確
+因為都是同一個人執行所有流程，因此資訊完全透明，這時會發現問題 feedback 並修正的效率超級高
+
+what's ci
+CI換句話說，持續修改程式，並驗證程式是不是正確，就是「持續整合」--唯有做到時常為程式健康檢查－－也就是「持續整合」
+
+without CI
+開發人員不願幫程式做健檢
+測試人員健檢又不完整
+程式在健檢不完整的情況都發現有病了，老闆又硬要程式帶病上陣
+-----------
+Devops/CI related actions:
+code review,
+Pair programming,
+pull request
+TDD

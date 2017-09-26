@@ -1,0 +1,12 @@
+1. <!DOCTYPE html>    tell browswer what language it's reading
+      <html>           start the doc
+    
+2. tags -- <>   -just like the parenteses in html
+3. <head> <title> and <body>
+
+4. Paragraphs <p> -----need to add it in each paragraphs
+5. Headings <h1>
+6. hyperlinks  <a href ="fddffd"/>
+7. Image <img src.../>
+
+8. add image under hyperlinks

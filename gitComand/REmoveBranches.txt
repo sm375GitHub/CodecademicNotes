@@ -1,0 +1,2 @@
+git branch -d branchName     //remove local
+git push -d origin branchName   //remove remote

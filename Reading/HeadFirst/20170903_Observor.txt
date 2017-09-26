@@ -1,0 +1,16 @@
+1. subject/observers
+object subscribes to the subject
+one to many relationship
+
+Subject: register/remove/notify Observer
+observer: Update()
+
+Loop coupling:
+So the only thing subject knows about observers is they implemented same interface and have same update function.
+
+*** strive for loosely coupled designs between objs
+
+-- passing parameters in Update() function.
+
+-- Observer get the subject from such as constructor paramters. And then using the registerObserver function in the subject to subscript itself in the subscripts.
+

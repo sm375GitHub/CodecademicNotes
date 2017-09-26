@@ -1,0 +1,9 @@
+
+Angular <----
+MVC5
+
+microservices
+CI/CD
+Test Driven
+
+

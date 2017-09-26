@@ -1,0 +1,22 @@
+Factory: encapsulate object creation and lead to more decoupled flexible designs.
+
+-- Factory method : superclass only provide abstract factory method to create an interface of the object
+subclasses provide concrete factory method to create the concrete object
+
+relay on inheritance. the object creation is delegated to subclasses. Because the factory method is an abstract method in the super class.... it need to be implemented in subclasses
+
+-- Abstract factory
+used to create product families. one abstract factory has lots of factory methods.
+
+rely on object composition. object creation is implemented in methods exposed in the factory interface.
+That means we pass an concrete factory instance to class. while the class only expect an abstract factory in definition.
+
+so we are using kind of abastract factory in our code. but the factory sub class usually only one....
+
+object composition
+
+-- both factory and client depend on the product
+-- all factory patterns allow us to encapsulate object creation
+
+
+--DI: dependency inversion  to avoid dependencies on concrete types and to strive for abstractions
