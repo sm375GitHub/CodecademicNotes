@@ -16,3 +16,6 @@ moq
             mock.Setup(m => m.GetAsync<T>(It.IsAny<List<Tuple<string, string>>>())).ReturnsAsync(new List<T> 		{ stubResouce });
             return mock;
         }
+
+8>             mock.Setup(m => m.GetAsync<Claim>(It.IsAny<IEnumerable<Tuple< string, string >>> ()))
+                .ReturnsAsync(new[] { new MockFhirClaimCreator().CreateFhirClaim(true) } as IEnumerable<Claim>);

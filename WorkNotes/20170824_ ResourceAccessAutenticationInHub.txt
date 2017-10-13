@@ -3,7 +3,13 @@
 --2> In MogoDB we can find the link between the subscriptionKey of the tenant in the slot and the tenant Id:
     in TenantSubscriptionConfiguration table. Id is susscriptionkey, TenantId is the tenant's id
 --3> In MongoDB, the APPId of the tenant is in PrivateAppConfiguration
---4> In MogoDB, the autenticiation between 2 tenants can be found in "TenantAppAccess"-- tenantActor: tenant Of the resouce
+--4> In MogoDB, the autenticiation between 2 tenants can be found in "TenantAppAccess"-- tenantActor: tenant Of the resouce 
+
+	---grantAccessTo is data owner
+ 	---grantFrom is the tenant get access to owner
+"dcf58a1a-2c7f-424d-90b7-7c9f0428c30b:wildlings-dev.helix.medicaldirector.com:77699511-0600-4ecc-8097-bf4d93998349"
+
+
 
 2. in APIM, We add appid and subscriptoinid. actually, it means appID(tenantA) doing someting on subscriptionid(TenantB) resouce
 

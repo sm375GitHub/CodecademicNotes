@@ -1,0 +1,12 @@
+1. some fhir namespaces:https://www.hl7.org/fhir/terminologies-systems.html
+
+2. web api
+  1-- Event
+  2--Impl
+    2.1---Controllers
+         2.1.1---ViewModels
+              ---DB
+              ---Mappings
+              ---Service
+               ---Repository
+  3--RebusHandlers

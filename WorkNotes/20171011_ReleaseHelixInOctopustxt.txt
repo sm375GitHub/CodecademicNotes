@@ -1,0 +1,13 @@
+1>https://octopus.medicaldirector.com/app 
+
+hub
+
+HubD3pl0yer!
+
+2. SYD-MD-H01HLIX
+   SYD-MD-H02HLIX --> release ---> pullrequest4765... --->
+
+3. in azure:
+Azure -> syd-md-ho2helix-webjobs -> AppServiceEditor -> Change  Fhir.ResourceSync.Endpoint value
+
+Fhir.ResourceSync.Endpoint

@@ -1,0 +1,3 @@
+1. when hub slot's size is larger than helix slots length, it will ignore any slots components from helix that can not be satisfied with the length requirment
+
+2, put enum into project rather than common

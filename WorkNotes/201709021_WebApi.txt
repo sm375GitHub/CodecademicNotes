@@ -1,0 +1,31 @@
+1. in APIHost - Global.Asax.cs 
+   in Application_Start() 
+   registe one Action<HttpConfiguration> function
+
+2. in the action<httpConfigration> function all WbAPIConfig method in each project is called. and the httpConfiguration is passed to the projects. With this method, we centrolized the individal projects with APIHost project....
+
+
+3. then set the formatters fo the configuration
+
+4. then add new Exceptionhandler in the config. filters???
+
+5. then set some webApi action rules : 
+config.MapHttpAttributeRoutes();
+config.EnsureInitialized();????????
+TelemetryConfiguration.Active.InstrumentationKey
+
+6, Controller's Unit test
+
+   6--1> need to set Request and Configuration
+            controller.Request = controller.Request = new HttpRequestMessage
+            {
+                RequestUri = new Uri("http://Test/PayLoadController")
+            };
+
+            controller.Request.Headers.Add("Request-Type", "NotSet");
+            controller.Configuration = new System.Web.Http.HttpConfiguration();
+
+   6--2> check the heepResponseMessage() returned by function: 
+        protected override async Task<HttpResponseMessage> createResponse<T>(
+            Task<T> request,
+            HttpStatusCode successCode, MediaTypeFormatter customMediaFormatter = null) 

@@ -1,0 +1,6 @@
+1.download nuget
+2.set environment path
+3.edit assemblyInfo.cs
+4.nuSpec  nuget spec And edit it
+
+f9382f76-39a0-43bc-9a80-df75cf5a8505

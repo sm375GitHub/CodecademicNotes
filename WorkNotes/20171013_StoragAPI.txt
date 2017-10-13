@@ -1,0 +1,40 @@
+1. create token https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Create
+--> response: url + header
+2. put method with URl and header in step1... add binary file--> 201
+
+3. read the file: https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Read?fileReference=https://mdhubdev1storage.blob.core.windows.net/300a285f-fe3b-42fb-9b32-7d296d7bb248/1cb7235d-02eb-44f0-bc47-05450b360ac6
+
+using api with file's id
+
+---> response SASUrl resposne string
+
+4. run the url with Get method
+
+
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Create --- get
+
+{
+    "SASUrl": "https://mdhubdev1storage.blob.core.windows.net/300a285f-fe3b-42fb-9b32-7d296d7bb248/78d45c64-1327-4396-ba55-183d93e1bd37?sv=2017-04-17&sr=b&sig=IRco0UMiFYGb%2Binn7SLrGGdJuV1z0Q%2FF92nymQcxp%2Fo%3D&se=2017-10-13T03%3A00%3A12Z&sp=w",
+    "Method": "PUT",
+    "Headers": {
+        "x-ms-blob-type": "BlockBlob",
+        "x-ms-meta-data": "UgEB5gy3OlHH8Iv4sO+/JKAf0yXTWnkBC182oueGRfSZqDfKyJjqpfCyCcAWv9OOGgnHeuUT8NRIfisrmv3dFnAhZwuOSWc8xv3LtqIQRtGHPQH33zvJP0DikveaqrVonavqfgxtsR1GEtXBm18CdpMkB0aPn/UeKtptm6+ky0l/5g+c6R4bbW5xCeLbbyyQ2Q5JE446Mz8GdpW1tFUVIC2/aR1qzrU2mGI1sVzp9Qk="
+    }
+}
+
+
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Read?fileReference=https://mdhubdev1storage.blob.core.windows.net/300a285f-fe3b-42fb-9b32-7d296d7bb248/e10aaf28-dc26-4611-90da-b10e41ae7cc5
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Update?fileReference=https://mdhubdev1storage.blob.core.windows.net/300a285f-fe3b-42fb-9b32-7d296d7bb248/e10aaf28-dc26-4611-90da-b10e41ae7cc5
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Delete?fileReference=https://mdhubdev1storage.blob.core.windows.net/300a285f-fe3b-42fb-9b32-7d296d7bb248/f26c00a9-42d7-4f29-ac79-3c371ef15975
+
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Create?TenantId=hub01.helix.medicaldirector.com&AppId=77699511-0600-4ecc-8097-bf4d93998349
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Read?TenantId=hub01.helix.medicaldirector.com&AppId=77699511-0600-4ecc-8097-bf4d93998349&fileReference=https://mdhubdev1storage.blob.core.windows.net/ae63a9d4-d38c-4715-8a41-ec6cd4517b2b/19618966-8cba-48ff-9516-cea7453f00ba
+
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Update?TenantId=hub01.helix.medicaldirector.com&AppId=77699511-0600-4ecc-8097-bf4d93998349&fileReference=https://mdhubdev1storage.blob.core.windows.net/ae63a9d4-d38c-4715-8a41-ec6cd4517b2b/d79dbaca-17fd-4ee0-aeea-a3c677a2308e
+
+https://test1-api.hub.medicaldirector.com/fhir/Patient/request-file-token/permission/Delete?TenantId=hub01.helix.medicaldirector.com&AppId=77699511-0600-4ecc-8097-bf4d93998349&fileReference=https://mdhubdev1storage.blob.core.windows.net/ae63a9d4-d38c-4715-8a41-ec6cd4517b2b/d79dbaca-17fd-4ee0-aeea-a3c677a2308e
+
+Header:
+app-id:dcf58a1a-2c7f-424d-90b7-7c9f0428c30b
+app-key:DAOys7P4F3adF47LoAywuBzkP2VgWbUpR/vAAzeG3vE=
+Ocp-Apim-Subscription-Key:7a6d70cc729145b0aa8f777db92aa2f6

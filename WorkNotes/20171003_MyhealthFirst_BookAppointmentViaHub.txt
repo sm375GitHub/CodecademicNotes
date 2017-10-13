@@ -1,0 +1,9 @@
+tenant-id Ranorex.Appointment
+
+app-id dcf58a1a-2c7f-424d-90b7-7c9f0428c30b
+
+app-key DAOys7P4F3adF47LoAywuBzkP2VgWbUpR/vAAzeG3vE=
+
+subscription-key for staging environment 7b3e566d871c425ba31effb2270e84e2
+
+test how myhealthfirst to make appointment via hub api

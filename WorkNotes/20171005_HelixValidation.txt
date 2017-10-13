@@ -1,0 +1,13 @@
+1. Data Annotation: 
+   validation Attribute
+   Display Attribute: how to display in ui
+   Modelling attribute: relationship between classes and the intended use of class member
+
+2. .net default annotation: 
+   System.ComponentModel.DataAnnotations... 
+   -- add attribute for each fields
+   -- need to run Validator.TryValidateObject(obj1, validationContext, validationResultList, ifALL)
+   -- check validationResult...
+
+3. FluentValidation
+  - set in Application_Start
