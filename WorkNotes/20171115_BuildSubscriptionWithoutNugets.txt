@@ -1,0 +1,3 @@
+1. because hub need to ref spark dll, but it is hard to add nuget at the moment. so we decided to push \bin\debug\dll1 and dll2 into git
+ -- git -f add.... and comiit
+2. but it failed.. because in the build service, it clearn the bin folder and create release folder . so nothing can saved inside... so we have to create another folder and add dlls in that folder and change ref path to point to the folder.... it is fixed.

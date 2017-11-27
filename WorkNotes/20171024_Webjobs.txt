@@ -1,0 +1,6 @@
+1. can create webjobs menually and set the type of the webjobs -- jobHost.RunAndBlock()
+2. or created by 
+webjobs-publish-settings.json
+webjobs-list.json
+
+3. QueueTriggers is the key thing for webjob to be triggered.

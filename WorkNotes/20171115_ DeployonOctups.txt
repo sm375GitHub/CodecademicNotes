@@ -1,0 +1,9 @@
+1. create PR -> in octopus click hub -> release ->find the pr created click deploy to--> in the environment select tenant(fhilfile) 
+there are 2 environments under this tenant so far (dev and test)
+
+2. there is another tenant named as mdHub. this tenant handles general envrionemtn, such as the dev under it will delploy integration tests auto..
+
+
+https://octopus.medicaldirector.com/app
+hub
+HubD3pl0yer!

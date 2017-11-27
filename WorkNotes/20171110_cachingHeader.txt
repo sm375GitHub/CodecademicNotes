@@ -1,0 +1,3 @@
+1. Etag and Last-Modified Headers -- avoid wasting the bandwidth 
+When server receives a request, it returns an ETag header as part of HTTP response. This ETag represents state of the resource. For the subsequent HTTP requests, client sends this ETag via If-None-Match header to identify if the resource is changed or not. The server will compare the current ETag and the one sent by the client. If ETag matches, server responds with 304 Not modified. 
+

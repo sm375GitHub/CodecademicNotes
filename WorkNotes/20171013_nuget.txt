@@ -3,4 +3,7 @@
 3.edit assemblyInfo.cs
 4.nuSpec  nuget spec And edit it
 
-f9382f76-39a0-43bc-9a80-df75cf5a8505
+-----Need to set Glob pattern to * to upload packages...
+
+ 
+20fe9b50-7cd7-4cd6-84ba-66eacd237675

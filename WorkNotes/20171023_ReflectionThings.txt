@@ -1,0 +1,5 @@
+1. reflection : getType
+2. getProperties::  You must specify either BindingFlags.Instance or BindingFlags.Static in order to get a return.
+   so if only pass BingingFlags.Public inside, it will return nothing
+   -- if using flag: bingFlags.DeclaredOnly, only including properties in curernt type not including things from the parents
+   -- using typeof(checkedType).IsAssginableFrom(refectedPropertyInfo.PropertyType) to check if the property can be assigned to the type

@@ -1,0 +1,59 @@
+ private SearchParameter createSearchParameterFromSearchParamDefinition(SearchParamDefinition def)
+        {
+            var result = new SearchParameter();
+            result.Name = def.Name;
+            result.Code = def.Name; //CK: SearchParamDefinition has no Code, but in all current SearchParameter resources, name and code are equal.
+            result.Base = GetResourceTypeForResourceName(def.Resource);
+            result.Type = def.Type;
+            result.Target = def.Target != null ? def.Target.ToList().Cast<ResourceType?>() : new List<ResourceType?>();
+            result.Description = def.Description;
+            //Strip off the [x], for example in Condition.onset[x].
+            result.SetPropertyPath(def.Path?.Select(p => p.Replace("[x]", "")).ToArray());
+
+            //Watch out: SearchParameter is not very good yet with Composite parameters.
+            //Therefore we include a reference to the original SearchParamDefinition :-)
+            result.SetOriginalDefinition(def);
+
+            return result;
+        }
+
+
+
+
+?((IndexValue)((CompositeValue)((IndexValue)result.Values.ToArray()[14]).Values[1]).Components[0]).Values[0].GetType().ToString()
+"Spark.Search.StringValue"
+?((IndexValue)((CompositeValue)((IndexValue)result.Values.ToArray()[14]).Values[1]).Components[0]).Name
+"code"
+
+MongoDB:
+db.getCollection('searchindex').find({"internal_resource": "Patient", "identifier": {$elemMatch:{system: "testSystej"}}})
+db.getCollection('searchindex').find({"internal_resource": "Patient", "telecom": {$elemMatch:{code: "1211111"}}})
+--in mongoDB all token is converted into System and Code...
+
+1. indexValue
+  --- index default name is root. the real content index is in "Values" collection
+  --
+  -- if count == 1 then return name and value key
+  -- if count > 1 then 
+
+2. compositionValue
+   retrieve components ( that is seperated by $)
+3. token-- always array by mongoExtensions function
+    namespace|value
+    --in CriteriaMongoExtensions: var arrayEqQuery = M.Query.ElemMatch(parameterName, M.Query.And(arrayQueries));
+    -- name... value for elematch...
+
+so as for token, we convert it into array. when search
+
+4ToFilter(this Criterium param, string resourceType)() extension
+
+
+
+5. in spark, it convert index into BsonElement (key/value pair in mongo) in the end
+   value can be an BsonArray... so using this structure to imitate the strcutur of indexValue....
+
+6.datetimeValue -->
+
+
+
+

@@ -1,0 +1,4 @@
+1. location - cmn.centres.Hpi - O
+2. Practitioner - hpi-i
+3. patient - MedicareCard
+4. IHI - patient id/ihi Number/ ihi numberStatus

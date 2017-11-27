@@ -1,0 +1,3 @@
+1. what's the subscription and notification?
+  when the condition of the subscription is satisified, the event is triggerd and the subscriptionr will get a  notification....
+  so need to check the subscriptin condition

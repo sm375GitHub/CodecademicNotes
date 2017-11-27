@@ -1,0 +1,39 @@
+1. Downlaod MongoDB community verson
+2. install
+3. find the bin folder udner C:\Program Files\MongoDB\Server\3.4\bin
+4. create a storage directory to store data
+5. run mongod.exe ---dbpaht <storage directory> the, mongo db started
+6. in spark solution, create virtual directory 
+7. in postman, http://localhost/Spark/fhir/Patient; with bearer token from step 8
+8. in postman, create auth2 token:
+-- https://login.windows.net/mdhub.onmicrosoft.com/oauth2/token
+-- Content-Type:application/x-www-form-urlencoded
+-- grant_type:client_credentials
+   client_id:885fbb6a-7443-4855-95cd-2d8be16ebb1b
+   resource:https://fhirrepo.hub.medicaldirector.com
+   client_secret:0R3mIL0jn8PX2715r8J9udF+WooebvTdFJ4WcYpsnoo=
+
+9 spark webconfig
+
+
+     <add key="webpages:Version" value="3.0.0.0" />
+                             <add key="webpages:Enabled" value="false" />
+                             <add key="ClientValidationEnabled" value="true" />
+                             <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+                            <add key="MONGOLAB_URI" value="mongodb://localhost:27017/testmongo" />
+                             <add key="FHIR_ENDPOINT" value="http://localhost:49911/fhir" />
+                             <add key="MaxBinarySize" value="65536" />
+                             <add key="MaxDecompressedBodySizeInBytes" value="20971520" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mdhubdevstorage;AccountKey=hVlIEmQV3ur3kZ+gL2lU+v7VMAXblkH4Cc9iacRGRJ0FDelqJEWBpqIH4vM+BXqGA7BsK8oRKRK1WJQEe67Biw==" />
+                             <add key="LogInstanceName" value="spark-dev" />
+                             <add key="LogTableName" value="sparkdevlog" />
+                             <add key="ProfilePath" value="~/App_Data/FHIRProfiles/AU" />
+                             <add key="ida:Tenant" value="mdhub.onmicrosoft.com" />
+                             <add key="ida:Audience" value="https://fhirrepo.hub.medicaldirector.com" />
+                             <add key="ida:ClientID" value="790c4ad0-40e2-4153-b592-065432334d36" />
+                             <add key="ida:Password" value="x2eT+u4o/lFtr7sFMm4rTfGpObbFe7SMCZZs9GkCq9M=" />
+                             <add key="Ocp-Apim-Subscription-Key" value="b2f8f241c0724d3abefacb58f28153b6" />
+                             <add key="AzureADTenant" value="mdhub" />
+                             <add key="MDHUBBASEURI" value="https://dev-api.hub.medicaldirector.com" />
+                             <add key="AADEndpoint" value="https://login.microsoftonline.com/mdhub.onmicrosoft.com/oauth2/token" />
+                             <add key="EventLevel" value="LogAlways" />

@@ -1,0 +1,25 @@
+1. in Mongo DB; PrivateAppConfiguration -- show which storageContainer the app can access in "Configuration" section
+{
+    "_id" : "hub01.helix.medicaldirector.com:77699511-0600-4ecc-8097-bf4d93998349",
+    "DateCreatedUTC" : [ 
+        NumberLong(0), 
+        0
+    ],
+    "DateModifiedUTC" : [ 
+        NumberLong(636431996587458111), 
+        0
+    ],
+    "TenantId" : "hub01.helix.medicaldirector.com",
+    "ContentType" : "json",
+    "Configuration" : "{\"FhirEndpointURL\":\"https://hub01.helix.medicaldirector.com/api/fhir\",\"AADTenant\":\"mdhub.onmicrosoft.com\",\"AppId\":\"https://helix.hub.medicaldirector.com\",\"ToBeSynced\":\"true\",\"StorageContainerName\":\"ae63a9d4-d38c-4715-8a41-ec6cd4517b2b\"}",
+    "AppId" : "77699511-0600-4ecc-8097-bf4d93998349",
+    "AllowSyncing" : false
+}
+
+In this case hub01.helix.medicaldirector.com(tenant)  77699511-0600-4ecc-8097-bf4d93998349(appid) can access storage container ae63a9d4-d38c-4715-8a41-ec6cd4517b2b
+
+2. the reason hub01 can access this information, is because we used Ranorex.Appointment helped hub01 created a resouce....
+ and the most important thing is that in TenantAppAccess, "Ranorex.appointment" has the access to "Hub01"'s "patient" resource...
+  so ranorex can provide the resouce to hub01, by adding a file to a db container that "hub01" can access in PrivateAppConfiguration...
+  the file location in azure is 
+  "https://mdhubdev1storage.blob.core.windows.net/ae63a9d4-d38c-4715-8a41-ec6cd4517b2b(container)/25fa9445-6def-40f2-9f17-77f5640be411(file id)

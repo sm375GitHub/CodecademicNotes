@@ -1,0 +1,1 @@
+1. contentType is mime type, the list of them can be find from system.web.miming
