@@ -1,0 +1,35 @@
+1. under sites -- add website
+   Add SiteName(display in sites) -->add physical path ->
+set port to 8080 or anyother --> 
+hostName(the ip of the host but local do not need to add)
+
+
+2under the website, can add virtual directory or App. but this method we can only use the website url as the base url. We can only choose the part of path after the base url
+such as localhost:80/vsTest....  we can not chang 80 to 8080 under this setting
+
+3. in vsCode: 
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+   
+ // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    
+"version": "0.2.0",
+   
+ "configurations": [
+        
+{
+            
+"type": "chrome",
+   
+"request": "launch",
+            
+"name": "Launch Chrome against localhost",
+            
+"url": "http://localhost:8080",
+            
+"webRoot": "${workspaceRoot}"
+        
+}
+    ]
+}

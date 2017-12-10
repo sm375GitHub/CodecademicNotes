@@ -1,0 +1,32 @@
+﻿1.ng-include : include HTML from an external file.
+2. Animation
+  --<div ng-hide="ngModelName">asdfafas</div>
+  --ngAnimate : when ngAnimate notice certain events, the element get some pre-defined css
+show/hide view/cindlude   repeat
+
+3. Routing
+-- need to include https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js
+-- Add ngRoute as dependency in module
+	var app = angular.module("myApp", ["ngRoute"]);============> myApp depends on module ngRoute; the [] 
+defines all modules myApp depends on
+-- $routeProvider
+	app.config(function($routeProvider){
+              $routeProvider.when("/", {templateUrl:"...htm"}).when("/red", {templateUrl: "red.htm})
+-- it will goto ng-view;
+  <div ng-view>
+
+---！！ 当其他html被加到app module的范围内。其他html也可以使用定义在当前model中的data了
+$routeProvider.when("/", {templateUrl:"...htm"}).when("/red", {templateUrl: "red.htm", controller:"con1"})
+app.controller("con1", fucntion($scope){$scope.msg = "i   ";});
+
+----Using square brackets to avoid from functon parameters names changing after minifiers:
+ ['$scope', '$http', 'MyService', function($scope, $http, MyService) { ... }]
+after  minifiers: ['$scope', '$http', 'MyService', function(a, b, c) { ... }]
+
+
+----hyperlink placeholder
+1> blank href refresh current page
+2> #id can go to any div with the id in the same page
+3> # dost not go anywhere, just make the page scrolling 
+4> #! to used as a placeholder that no div can use ! as the id
+5> 

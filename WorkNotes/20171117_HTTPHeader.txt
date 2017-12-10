@@ -1,0 +1,60 @@
+1. pairs of content type and Accept
+content type is the media type of current body
+and the accept is special for request to define the medial tyep the client expected
+
+app-key:xYZDWInI6jtRSnGkMvAdQ8YoR63A/JvaWr4Kf4tlz6g=
+app-id:77699511-0600-4ecc-8097-bf4d93998349
+Ocp-Apim-Subscription-Key:3eeeac76bba043bb86a3b9bd9b6b7d42
+Accept:application/json
+Content-Type:application/json
+
+the standard extension:
+https://hl7.org/fhir/DSTU2/extension-geneticsspecies-definitions.html#extension.valueCodeableConcept
+https://hl7.org/fhir/DSTU2/extensibility.html#Extension
+
+
+
+{
+  "resourceType": "Subscription",
+    "extension": [
+                    {
+                        	"url":"http://medicaldirector.com/hub/identifier/app-id" ,
+                        	"valueString":"77699511-0600-4ecc-8097-bf4d93998349"
+                        
+                    },
+                    {
+                        "url":"http://medicaldirector.com/hub/identifier/tenant-id" ,
+                        "valueString":"hub01.helix.medicaldirector.com"
+                        
+                    }
+   
+    ],
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+  },
+  "status": "requested",
+  "contact": [
+    {
+      "system": "phone",
+      "value": "ext 4123"
+    }
+  ],
+  "end": "2021-01-01T00:00:00Z",
+  "reason": "Monitor new neonatal function",
+  "criteria": "Observation?code=http://loinc.org|1975-2",
+  "channel": {
+    "type": "rest-hook",
+    "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+    "payload": "application/fhir+json",
+    "header": [
+      "Authorization: Bearer secret-token-abc-123"
+    ]
+  },
+  "tag": [
+    {
+      "system": "http://example.org/fhir/cs/internal",
+      "code": "bili-done"
+    }
+  ]
+}

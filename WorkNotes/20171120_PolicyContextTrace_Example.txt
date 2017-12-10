@@ -1,0 +1,22 @@
+<policies>
+    <inbound>
+        <cache-store-value key="test" value="sample" duration="10" />
+        <cache-lookup-value key="@((string)context.Request.Headers.GetValueOrDefault("key"))" variable-name="output" />
+        <choose>
+            <when condition="@(context.Variables.ContainsKey("output"))">
+                <trace source="Shenshen">@((string)context.Variables["output"])</trace>
+            </when>
+        </choose>
+        <return-response response-variable-name="existing response variable">
+            <set-status code="200" reason="" />
+            <set-body>@((string)context.Variables["output"])</set-body>
+        </return-response>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound />
+    <on-error>
+        <base />
+    </on-error>
+</policies>

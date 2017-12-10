@@ -1,0 +1,46 @@
+1. Resouce ===> Index
+
+      when spark convert fhir resource searchParameters (i.e. properties) into index, it using "ElementIndexer.cs" to map each properties into indexes based on information provided by modelInfo 
+ -- quanlity --value, unit, system 
+    
+	system-stringValue&value-numberVlaue&decimals-stringValue&unit-stringValue
+	
+2. map index into something that can be comparied (custom type, or expressValue object)
+
+3. compare mapping result with criteirum:
+
+
+	in criteria, it is writen as string defined in ValueExpressionTypes folder in Spark....
+	it will be convert tinto something can be compared with index vlaues.
+	
+	---check CriteriaMongoExtensions
+	
+	
+	Reference
+	1. ResourceReference will be mapped into stringValue. If the url is started with # it will be ignored when converted into the index
+    2. mapped this index  into string Value and compared 
+	
+4. criteirum: the operand is an UntypedValue. THen when comparing, using UnTypedValue.as... convert it to related ExpressValue...
+when a criterium is compared with a specific type index. the criterium's operand must be able to be converted into the index's related expressValue......
+
+choiseValue => parse(,) => each string passed into splitIntoComposite=> compositeValue.parse(text) => choiseValue or unTypedValue/compositeValue (i.e. choiseValue.Value[0])
+so each choise of choiseValue is an unTypedValue or compositeValue
+
+5, target resource converted into index --> name and recursive index --> a type of expression   this express then can be compard with expressionValue in step 4
+
+FormatException-- criteirum.parse
+
+compare:
+           string typedOperand;
+            try
+            {
+                typedOperand = ((UntypedValue)operand).AsNumberValue().ToString();
+            }
+            catch (InvalidCastException)
+            {
+                throw new ArgumentException(String.Format("Invalid number value {0} on number parameter {1}", operand, parameterName));
+            }
+            catch (FormatException)
+            {
+                throw new ArgumentException(String.Format("Invalid number value {0} on number parameter {1}", operand, parameterName));
+            }
